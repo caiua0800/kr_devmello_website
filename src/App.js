@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import AgenteIA from './components/Produtos/AgenteIA';
+import Whitelabel from './components/Produtos/Whitelabel';
+import Testimonials from './components/Testimonials/Testimonials';
+import CarrosselClientes from './components/CarrosselClientes/CarrosselClientes';
+import Contato from './components/Contato/Contato';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Hero />
+      <AgenteIA />
+      <Whitelabel />
+      <Testimonials />
+      <CarrosselClientes />
+      <Contato />
     </div>
   );
 }

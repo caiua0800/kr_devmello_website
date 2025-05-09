@@ -1,0 +1,196 @@
+.counterSection {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 8vw;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.counterSection::before {
+  display: none;
+}
+
+.counterContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.counterBox {
+  text-align: center;
+  padding: 40px;
+  background: rgba(24, 18, 43, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(94, 53, 141, 0.1);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  box-shadow: 0 20px 30px rgba(10, 7, 20, 0.2);
+  min-width: 320px;
+  width: calc(50% - 16px);
+  z-index: 2;
+}
+
+.counterBox.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.counterBox::before {
+  display: none;
+}
+
+.financialBox {
+  border-color: rgba(94, 141, 72, 0.1);
+  transition-delay: 0.2s;
+}
+
+.financialBox .number,
+.financialBox .plus {
+  background: linear-gradient(135deg, #4ca259, #2f8344);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 10px 20px rgba(68, 131, 72, 0.3);
+}
+
+.counterTitle {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffffff, #a79cc2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.counterValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.number {
+  font-size: 5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #A259FF, #8344c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-shadow: 0 10px 20px rgba(131, 68, 197, 0.3);
+}
+
+.plus {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #A259FF, #8344c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  margin-left: 5px;
+  transform: translateY(-10px);
+  animation: pulsate 2s infinite ease-in-out;
+}
+
+.counterText {
+  font-size: 1.1rem;
+  color: #9d94b8;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+@media (max-width: 992px) {
+  .counterBox {
+    width: 100%;
+    max-width: 480px;
+  }
+  
+  .financialBox {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .counterSection {
+    padding: 60px 5vw;
+  }
+  
+  .counterBox {
+    min-width: 280px;
+    padding: 30px 20px;
+  }
+  
+  .number {
+    font-size: 3.8rem;
+  }
+  
+  .plus {
+    font-size: 2.8rem;
+  }
+  
+  .counterTitle {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .counterSection {
+    padding: 40px 20px;
+  }
+  
+  .counterContainer {
+    gap: 24px;
+  }
+  
+  .counterBox {
+    min-width: 100%;
+    padding: 25px 15px;
+    width: 100%;
+  }
+  
+  .financialBox {
+    margin-top: 0;
+  }
+  
+  .number {
+    font-size: 3.2rem;
+    letter-spacing: -1px;
+  }
+  
+  .plus {
+    font-size: 2.4rem;
+  }
+  
+  .counterTitle {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .counterText {
+    font-size: 1rem;
+  }
+} 

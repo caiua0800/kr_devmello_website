@@ -1,0 +1,578 @@
+.testimonials {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 8vw;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.testimonials::before {
+  display: none; /* Desativado pois o efeito agora é global no App.css */
+}
+
+.testimonialsContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 2.6rem;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  letter-spacing: 1px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight {
+  color: #A259FF;
+  text-shadow: 0 0 8px rgba(162, 89, 255, 0.5);
+  position: relative;
+  display: inline-block;
+}
+
+.animatedUnderline {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #A259FF, transparent);
+  border-radius: 4px;
+  transform: translateX(-50%);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+
+.title.visible .animatedUnderline {
+  width: 100%;
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.testimonialCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 60%;
+}
+
+.testimonialCard {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(24, 18, 43, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(94, 53, 141, 0.15);
+  box-shadow: 0 15px 25px rgba(10, 7, 20, 0.2);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  height: auto;
+  min-height: 240px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.testimonialCard.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.testimonialContent {
+  position: relative;
+  padding: 30px 20px 20px 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonialContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(14, 93, 116, 0.03), rgba(94, 53, 141, 0.05));
+  z-index: -1;
+}
+
+.quote {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5rem;
+  line-height: 0.7;
+  font-family: 'Georgia', serif;
+  opacity: 0.1;
+  color: #A259FF;
+}
+
+.testimonialText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #a9a0c2;
+  position: relative;
+  z-index: 2;
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 3;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.authorImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8344c5, #4c2974);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(131, 68, 197, 0.3);
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.authorRole {
+  font-size: 0.8rem;
+  color: #a259ff;
+  white-space: nowrap;
+}
+
+/* Counter section styles */
+.counterSection {
+  width: 40%;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.counterSection.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.counterBox {
+  background: rgba(30, 22, 53, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(94, 53, 141, 0.2);
+  box-shadow: 0 15px 30px rgba(10, 7, 20, 0.3);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  transition: all 0.4s ease;
+}
+
+.counterBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(94, 53, 141, 0.15), transparent 70%);
+  z-index: -1;
+}
+
+.counterBox.hovering {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(10, 7, 20, 0.4);
+  border-color: rgba(162, 89, 255, 0.3);
+}
+
+/* Estilo específico para o contador financeiro */
+.financialCounter {
+  border-color: rgba(72, 141, 94, 0.2);
+  transition-delay: 0.2s;
+  background: rgba(30, 22, 53, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(10, 7, 20, 0.3);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  transition: all 0.4s ease;
+}
+
+.financialCounter::before {
+  background: radial-gradient(circle at 50% 40%, rgba(72, 141, 94, 0.15), transparent 70%);
+}
+
+.financialCounter.hovering {
+  border-color: rgba(72, 141, 94, 0.3);
+}
+
+.financialCounter .counterNumber {
+  display: inline-block;
+  font-size: 2.8rem;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #fff, #4ca259);
+  -webkit-background-clip: text;
+  background-clip: text;
+  white-space: nowrap;
+}
+
+.financialCounter .plus {
+  font-size: 1.8rem;
+  margin-left: 5px;
+  background: linear-gradient(135deg, #fff, #4ca259);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.financialCounter.hovering .counterNumber,
+.financialCounter.hovering .plus {
+  background: linear-gradient(135deg, #fff, #4ca259);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: none;
+}
+
+.counterTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #a9a0c2;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.counterNumber {
+  font-size: 4.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, #a259ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  transition: all 0.3s ease;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.counterBox.hovering .counterNumber {
+  background: linear-gradient(135deg, #fff, #bd7aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: none;
+}
+
+.counterDesc {
+  font-size: 0.9rem;
+  color: #a9a0c2;
+  margin-top: 10px;
+}
+
+.hoverText {
+  font-size: 0.8rem;
+  color: rgba(169, 160, 194, 0.6);
+  margin-top: 25px;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.counterBox.hovering .hoverText {
+  opacity: 0;
+}
+
+.plus {
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-left: 5px;
+  color: #a259ff;
+  animation: pulse 2s infinite;
+  background: linear-gradient(135deg, #fff, #a259ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.counterBox.hovering .plus {
+  animation: none;
+  transform: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes fastPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.financialCounter .counterDesc {
+  font-size: 0.9rem;
+}
+
+.counterValue {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.counterBox.hovering .counterValue {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .testimonialCards, 
+  .counterSection {
+    width: 100%;
+  }
+  
+  .counterBox {
+    padding: 30px 20px;
+    min-height: 220px;
+  }
+  
+  .counterNumber {
+    font-size: 4rem;
+  }
+  
+  .financialCounter {
+    padding: 30px 20px;
+    min-height: 220px;
+  }
+  
+  .financialCounter .counterNumber {
+    font-size: 2.6rem;
+    letter-spacing: -2px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .testimonialCard {
+    min-height: 250px;
+  }
+  
+  .testimonialText {
+    margin-bottom: 75px;
+  }
+  
+  .testimonialContent {
+    padding: 25px 20px 15px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 80px 5vw;
+ 
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .testimonialContent {
+    padding: 25px 15px 15px 15px;
+  }
+  
+  .testimonialText {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .counterNumber {
+    font-size: 3.5rem;
+  }
+  
+  .financialCounter {
+    padding: 30px 20px;
+  }
+  
+  .financialCounter .counterNumber {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .counterDesc {
+    font-size: 1rem;
+  }
+  
+  .plus {
+    font-size: 2rem;
+    margin-left: 5px;
+  }
+  
+  .financialCounter .plus {
+    font-size: 1.8rem;
+    margin-left: 5px;
+  }
+  
+  .testimonialCard {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials {
+    padding: 60px 20px;
+  }
+
+  .contentWrapper {
+    gap: 30px;
+  }
+
+  .counterBox {
+    min-height: 180px;
+    padding: 20px 15px;
+  }
+
+  .counterNumber {
+    font-size: 3rem;
+  }
+
+  .financialCounter {
+    min-height: 180px;
+    padding: 20px 15px;
+  }
+
+  .financialCounter .counterNumber {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .financialCounter .plus,
+  .plus {
+    font-size: 1.6rem;
+    margin-left: 2px;
+  }
+
+  .counterTitle {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .counterDesc {
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+
+  .counterValue {
+    margin-bottom: 15px;
+  }
+
+  .testimonialContent {
+    padding: 20px 15px 15px 15px;
+  }
+  
+  .testimonialText {
+    margin-bottom: 15px;
+  }
+} 

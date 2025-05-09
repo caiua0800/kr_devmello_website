@@ -1,0 +1,510 @@
+/* Estilos globais para o corpo da página */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #18122b;
+  color: #000000;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efeito de gradiente rotativo global - adaptado do componente Testimonials */
+body::before {
+  content: '';
+  position: fixed;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(ellipse at center, rgba(184, 138, 237, 0.15) 0%, transparent 70%);
+  opacity: 0.8;
+  z-index: -1;
+  animation: rotateGlobal 20s infinite linear;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@keyframes rotateGlobal {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animações globais compartilhadas que podem ser usadas por múltiplos componentes */
+@keyframes float-blobs {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(1%, 0.5%); }
+  66% { transform: translate(-0.5%, -1%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Classe principal da aplicação */
+.App {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.kr-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.kr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 8vw 0 8vw;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.kr-logo {
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #A259FF;
+  text-shadow: 0 0 12px #a259ff55;
+}
+
+.kr-header nav a {
+  color: #fff;
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.kr-header nav a:hover {
+  color: #A259FF;
+}
+
+.kr-logo-img {
+  height: 56px;
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #a259ff44;
+  background: rgba(24, 18, 43, 0.6);
+  margin-right: 24px;
+}
+
+.kr-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8vw;
+  gap: 32px;
+  animation: fadeIn 1.2s;
+  margin-bottom: -64px;
+  position: relative;
+}
+
+.kr-hero::before {
+  display: none;
+}
+
+.kr-hero-text {
+  max-width: 600px;
+  position: relative;
+}
+
+.kr-hero-text::after {
+  display: none;
+}
+
+.kr-hero-text h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.kr-hero-text h1 span {
+  color: #A259FF;
+  text-shadow: 0 0 8px #a259ff88;
+  position: relative;
+  display: inline-block;
+}
+
+.kr-hero-text h1 span::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #A259FF, transparent);
+  border-radius: 4px;
+}
+
+.kr-hero-text p {
+  font-size: 1.35rem;
+  color: #bdb7e2;
+  margin-bottom: 24px;
+}
+
+.kr-hero-list {
+  color: #a259ff;
+  font-size: 1.1rem;
+  margin: 0 0 0 18px;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.kr-hero-img {
+  width: 420px;
+  max-width: 40vw;
+  border-radius: 32px;
+  box-shadow: 0 8px 40px #a259ff33, 0 1.5px 0 #fff1;
+  animation: float 3.5s ease-in-out infinite;
+  position: relative;
+}
+
+.kr-hero-img::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(162, 89, 255, 0.2), rgba(0, 234, 255, 0.2));
+  opacity: 0.5;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+.kr-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8vw;
+  margin-top: -64px;
+  position: relative;
+}
+
+.kr-section::before {
+  display: none;
+}
+
+.kr-section-content {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.kr-section-content.reverse {
+  flex-direction: row-reverse;
+}
+
+.kr-section-img-large {
+  width: 520px;
+  max-width: 45vw;
+  border-radius: 32px;
+  box-shadow: 0 8px 40px #a259ff33, 0 1.5px 0 #fff1;
+  animation: fadeIn 1.2s;
+  position: relative;
+}
+
+.kr-section-img-large::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 234, 255, 0.2), rgba(162, 89, 255, 0.2));
+  opacity: 0.5;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+.kr-section h2 {
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+}
+
+.kr-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #A259FF, transparent);
+  border-radius: 2px;
+}
+
+.kr-section p {
+  color: #bdb7e2;
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.kr-section-list {
+  color: #a259ff;
+  font-size: 1.1rem;
+  margin: 0 0 0 18px;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.kr-logos-carousel {
+  width: 100vw;
+  overflow: hidden;
+  padding: 100px 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  position: relative;
+}
+
+.kr-logos-carousel::before {
+  display: none;
+}
+
+.kr-logos-carousel-inner {
+  width: 900px;
+  max-width: 90vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  height: 200px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.kr-logos-carousel-inner::before,
+.kr-logos-carousel-inner::after {
+  display: none !important;
+}
+
+.kr-logos-track {
+  display: flex;
+  gap: 48px;
+  animation: kr-scroll-logos 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes kr-scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.kr-logos-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #A259FF;
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 0 15px rgba(162, 89, 255, 0.5);
+}
+
+.kr-logos-title::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #A259FF, transparent);
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.kr-logo-item {
+  height: 80px;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  filter: grayscale(1) brightness(1.2) drop-shadow(0 0 8px #a259ff44) blur(0.5px) contrast(105%);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  background: rgba(24, 18, 43, 0.8);
+  border-radius: 16px;
+  padding: 8px 24px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kr-logo-item:hover {
+  filter: grayscale(0) brightness(1.1) drop-shadow(0 0 16px #a259ffcc);
+  opacity: 1;
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(40, 30, 70, 0.9);
+  border-color: rgba(162, 89, 255, 0.3);
+}
+
+.kr-contact {
+  padding: 48px 8vw 32px 8vw;
+  background: rgba(24, 18, 43, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 32px 32px 0 0;
+  margin-top: 48px;
+  animation: fadeIn 1.2s;
+  position: relative;
+  border-top: 1px solid rgba(162, 89, 255, 0.2);
+}
+
+.kr-contact h2 {
+  margin-bottom: 18px;
+  color: #A259FF;
+  font-size: 1.7rem;
+}
+
+.kr-contact-form {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kr-contact-form input {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #221a3a;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  min-width: 180px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px #a259ff22;
+  transition: box-shadow 0.2s;
+}
+
+.kr-contact-form input:focus {
+  box-shadow: 0 2px 16px #a259ff66;
+}
+
+.kr-contact-form button {
+  background: linear-gradient(90deg, #A259FF 0%, #4F2D9F 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #a259ff44;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.kr-contact-form button:hover {
+  background: linear-gradient(90deg, #4F2D9F 0%, #A259FF 100%);
+  box-shadow: 0 2px 24px #a259ff99;
+}
+
+.kr-footer {
+  text-align: center;
+  color: #bdb7e2;
+  font-size: 1rem;
+  padding: 24px 0 12px 0;
+  background: transparent;
+  margin-top: auto;
+}
+
+@media (max-width: 1100px) {
+  .kr-section-img-large {
+    width: 320px;
+    max-width: 90vw;
+  }
+  .kr-section-content {
+    flex-direction: column !important;
+    gap: 32px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .kr-hero-text h1, .kr-section h2 {
+    font-size: 2rem;
+  }
+  .kr-hero-img, .kr-section-img-large {
+    width: 180px;
+    max-width: 90vw;
+  }
+}
+
+.kr-neomorph-box {
+  background: #201a36;
+  border-radius: 40px;
+  box-shadow:
+    0 8px 32px 0 #18122bcc,
+    0 -8px 32px 0 #2d1b5a55,
+    inset 0 0 24px 0 #000000cc,
+    inset 0 0 8px 0 #a259ff33;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin: 0 auto 0 auto;
+  max-width: 1400px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .kr-neomorph-box {
+    flex-direction: column;
+    padding: 24px 4px;
+    gap: 18px;
+  }
+}

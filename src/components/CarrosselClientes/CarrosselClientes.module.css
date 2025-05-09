@@ -1,0 +1,72 @@
+.carouselSection {
+  width: 100vw;
+  overflow: hidden;
+  padding: 100px 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #A259FF;
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+.carouselInner {
+  width: 900px;
+  max-width: 90vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  height: 200px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.track {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  animation: kr-scroll-logos 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes kr-scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logoItem {
+  height: 80px;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  filter: grayscale(1) brightness(1.2) drop-shadow(0 0 8px #a259ff44) blur(0.5px) contrast(105%);
+  opacity: 0.85;
+  transition: filter 0.2s, opacity 0.2s;
+  background: #18122B;
+  border-radius: 16px;
+  padding: 8px 24px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoItem:hover {
+  filter: grayscale(0) brightness(1.1) drop-shadow(0 0 16px #a259ffcc);
+  opacity: 1;
+} 

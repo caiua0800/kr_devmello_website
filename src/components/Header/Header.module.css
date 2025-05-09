@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 32px 8vw 0 8vw;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.logoImg {
+  height: 56px;
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #a259ff44;
+  background: #18122B;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  position: relative;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+nav a:hover {
+  color: #A259FF;
+  background: none;
+  box-shadow: none;
+} 

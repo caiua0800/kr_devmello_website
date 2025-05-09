@@ -1,38 +1,79 @@
+/* Estilos globais para o corpo da página */
+html {
+  height: 100%;
+  font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #120f22; /* Cor de fundo sólida que aparece ao rolar ou entre os gradientes */
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  text-align: left;
+}
+
+/* Animações globais compartilhadas que podem ser usadas por múltiplos componentes */
+@keyframes float-blobs {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(1%, 0.5%); }
+  66% { transform: translate(-0.5%, -1%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Classe principal da aplicação */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  position: relative; /* Necessário para o .App::before e .App::after com position: absolute */
+  z-index: 0; /* Cria um contexto de empilhamento */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: transparent; /* Importante para que os ::before e ::after sejam visíveis */
 }
 
-.App-link {
-  color: #61dafb;
+.App::before {
+  content: "";
+  position: absolute; /* Posicionado em relação ao .App */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* O gradiente ocupa apenas a altura da primeira tela */
+  background: radial-gradient(160% 160% at 50% 95%, #120f22 40%, #6633ee 90%); /* Gradiente superior (original) */
+  z-index: -1;   /* Atrás do conteúdo direto do .App */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App::after {
+  content: "";
+  position: absolute; /* Posicionado em relação ao .App */
+  bottom: 0; /* Alinha ao final do .App */
+  left: 0;
+  width: 100%;
+  height: 100vh; /* O gradiente ocupa os últimos 100vh de altura do .App */
+  background: radial-gradient(160% 160% at 50% 5%, #120f22 40%, #6633ee 90%); /* Gradiente inferior (invertido) */
+  z-index: -1;   /* Atrás do conteúdo direto do .App */
+}
+
+p, h1, h2, h3, h4, h5, h6, ul, ol, li {
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  /* Responsive styles */
+}
+
+@media (max-width: 1200px) {
+  /* Additional responsive styles */
 }
