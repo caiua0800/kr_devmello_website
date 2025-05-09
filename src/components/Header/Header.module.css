@@ -43,4 +43,26 @@ nav a:hover {
   color: #A259FF;
   background: none;
   box-shadow: none;
-} 
+}
+
+@media (max-width: 500px) {
+  .header {
+    padding: 10px 20px 0px 20px;
+  }
+
+  .logoImg{
+    width: 45px;
+    height: 45px;
+  }
+
+  nav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+}
