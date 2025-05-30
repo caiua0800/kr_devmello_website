@@ -8,7 +8,7 @@ export default function Contato() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedMessage = `Olá, sou o ${name}, vim pelo site da KR, ${message}`;
-    const whatsappUrl = `https://wa.me/5517992562727?text=${encodeURIComponent(formattedMessage)}`;
+    const whatsappUrl = `https://wa.me/${process.env.REACT_APP_CONTACT}?text=${encodeURIComponent(formattedMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
 
