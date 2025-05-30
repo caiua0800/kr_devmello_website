@@ -16,8 +16,8 @@ export default function Contato() {
     <section className={styles.contact} id="contato">
       <h2>Fale com a KR</h2>
       <form onSubmit={handleSubmit} className={styles.contactForm}>
-        <input value={name} onChange={e => setName(e.target.value)} type="text" name="name" placeholder="Seu nome" required />
-        <input value={message} onChange={e => setMessage(e.target.value)} type="text" name="message" placeholder="Sua mensagem" required />
+        <input className='inputText' value={name} onChange={e => setName(e.target.value)} type="text" name="name" placeholder="Seu nome" required />
+        <input style={{ height: 100 }} className='big-text inputText' value={message} onChange={e => setMessage(e.target.value)} type="text" name="message" placeholder="Sua mensagem" required />
         <button type="submit" className={styles.button}>Enviar no WhatsApp</button>
       </form>
     </section>

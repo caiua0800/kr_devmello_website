@@ -2,10 +2,9 @@ import React from 'react';
 import styles from './CarrosselClientes.module.css';
 
 const logos = [
-  "img/logo.png",
-  "img/hotspot-white-label-mambo-wifi.png",
-  "img/agenteAi.png",
-  // Adicione mais logos aqui
+  "img/logo-golden-ouro.png",
+  "img/logo-golden-ouro.png",
+  "img/logo-golden-ouro.png",
 ];
 
 const logosLoop = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
